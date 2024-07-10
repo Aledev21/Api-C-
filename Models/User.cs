@@ -1,4 +1,3 @@
-using System;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
@@ -8,16 +7,18 @@ namespace User.Models
     {
         public int Id { get; set; }
         
-        public string Email { get; set; }
+        public string? Email { get; set; }
+
+
         
-        private string _passwordHash;
+        private string? _passwordHash;
         public string PasswordHash 
         { 
             get => _passwordHash; 
             set => _passwordHash = HashPassword(value); 
         }
         
-        public string PasswordSalt { get; set; } // Sal para salting da senha
+        public string? PasswordSalt { get; set; } // Sal para salting da senha
 
         // Método para verificar a senha
         public bool VerifyPassword(string password)
@@ -41,9 +42,7 @@ namespace User.Models
 
             // Configurações para o processo de hashing
             int iterations = 10000; // Número de iterações
-
-            int hashLength = 32; // Tamanho do hash em 
-            
+            int hashLength = 32; // Tamanho do hash em bytes
             string hashAlgorithm = "SHA256"; // Algoritmo de hashing
 
             // Gerar o hash da senha com salting
@@ -57,5 +56,7 @@ namespace User.Models
             PasswordSalt = Convert.ToBase64String(salt);
             return hashedPassword;
         }
+            public UserProfile Profile { get; set; } // Relação entre os models users
+
     }
 }
