@@ -1,0 +1,26 @@
+# Arquivos gerados durante a compilação
+bin/
+obj/
+
+# Configurações locais
+launchSettings.json
+appsettings.Development.json
+
+# Arquivos de log e debug
+*.log
+*.vscode/
+
+# Configuração do IDE
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Pacotes e dependências de terceiros
+/packages/
+
+# Arquivos de cache e temporários
+*.cache
+*.tmp
+
+# Outros arquivos e diretórios específicos do projeto que você deseja ignorar
